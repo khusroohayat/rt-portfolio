@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars , faStop, faCrosshairs, faTimes} from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faStop,
+  faCrosshairs,
+  faTimes
+} from "@fortawesome/free-solid-svg-icons";
 import {
   faTwitter,
   faFacebook,
@@ -8,29 +13,29 @@ import {
   faGithub
 } from "@fortawesome/free-brands-svg-icons";
 
-function Nav() {
+function Nav(props) {
   return (
-    <nav className="menu">
-      <div className="menu-branding">
+    <nav className={"menu " + (!props.shownav ? "show" : "")}>
+      <div className={"menu-branding " + (!props.shownav ? "show" : "")}>
         <div className="portrait" />
       </div>
-      <ul className="menu-nav">
-        <li className="nav-item">
+      <ul className={"menu-nav " + (!props.shownav ? "show" : "")}>
+        <li className={"nav-item current " + (!props.shownav ? "show" : "")}>
           <a href="/" className="nav-link">
             Home
           </a>
         </li>
-        <li className="nav-item">
+        <li className={"nav-item " + (!props.shownav ? "show" : "")}>
           <a href="/" className="nav-link">
             About me
           </a>
         </li>
-        <li className="nav-item">
+        <li className={"nav-item " + (!props.shownav ? "show" : "")}>
           <a href="/" className="nav-link">
             My Work
           </a>
         </li>
-        <li className="nav-item">
+        <li className={"nav-item " + (!props.shownav ? "show" : "")}>
           <a href="/" className="nav-link">
             How To Reach Me
           </a>
@@ -54,34 +59,35 @@ function Nav() {
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = { isHidden: true }
+    this.state = { isHidden: true };
 
-    this.toggleMenu = this.toggleMenu.bind(this)    
+    this.toggleMenu = this.toggleMenu.bind(this);
   }
-  toggleMenu () {
-    this.setState({ 
-      isHidden: !this.state.isHidden 
+  toggleMenu() {
+    this.setState({
+      isHidden: !this.state.isHidden
     });
     console.log(this.state.isHidden);
-    
   }
-  render() { 
-    return ( 
+  render() {
+    return (
       <header>
-       <div className="menu-btn" onClick={this.toggleMenu} >
-         {/* <FontAwesomeIcon icon={faBars} size="lg" /> */}
-         {this.state.isHidden ? <Child icon={faBars} /> : <Child icon={faTimes} />}
-       </div>
-       <Nav />
-     </header>
-     );me
+        <div className="menu-btn" onClick={this.toggleMenu}>
+          {this.state.isHidden ? (
+            <Child icon={faBars} />
+          ) : (
+            <Child icon={faTimes} />
+          )}
+        </div>
+        <Nav shownav={this.state.isHidden} />
+      </header>
+    );
   }
 }
- 
 
-const Child = (props) => {
-  return <FontAwesomeIcon icon={props.icon} size="2x" />
-}
+const Child = props => {
+  return <FontAwesomeIcon icon={props.icon} size="2x" />;
+};
 
 function Home() {
   return (
