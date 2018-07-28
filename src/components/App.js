@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars , faStop, faCrosshairs, faTimes} from "@fortawesome/free-solid-svg-icons";
 import {
   faTwitter,
   faFacebook,
@@ -40,15 +40,47 @@ function Nav() {
   );
 }
 
-function Header() {
-  return (
-    <header>
-      <div className="menu-btn">
-        <FontAwesomeIcon icon={faBars} size="lg" />
-      </div>
-      <Nav />
-    </header>
-  );
+// function Header() {
+//   return (
+//     <header>
+//       <div className="menu-btn" onClick={toggleMenu()} >
+//         <FontAwesomeIcon icon={faBars} size="lg" />
+//       </div>
+//       <Nav />
+//     </header>
+//   );
+// }
+
+class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { isHidden: true }
+
+    this.toggleMenu = this.toggleMenu.bind(this)    
+  }
+  toggleMenu () {
+    this.setState({ 
+      isHidden: !this.state.isHidden 
+    });
+    console.log(this.state.isHidden);
+    
+  }
+  render() { 
+    return ( 
+      <header>
+       <div className="menu-btn" onClick={this.toggleMenu} >
+         {/* <FontAwesomeIcon icon={faBars} size="lg" /> */}
+         {this.state.isHidden ? <Child icon={faBars} /> : <Child icon={faTimes} />}
+       </div>
+       <Nav />
+     </header>
+     );me
+  }
+}
+ 
+
+const Child = (props) => {
+  return <FontAwesomeIcon icon={props.icon} size="2x" />
 }
 
 function Home() {
@@ -79,6 +111,10 @@ function Home() {
 }
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { showmenu: true };
+  }
   componentDidMount() {
     document.body.id = "bg-img";
   }
