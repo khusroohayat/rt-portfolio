@@ -14,6 +14,7 @@ import {
   faGithub
 } from "@fortawesome/free-brands-svg-icons";
 import About from "./about";
+import Work from "./work";
 
 function Nav(props) {
   return (
@@ -33,9 +34,9 @@ function Nav(props) {
           </NavLink>
         </li>
         <li className={"nav-item " + (!props.shownav ? "show" : "")}>
-          <a href="/" className="nav-link">
-            My Work
-          </a>
+          <NavLink activeClassName="current" className="nav-link" to="/work">
+            Work
+          </NavLink>
         </li>
         <li className={"nav-item " + (!props.shownav ? "show" : "")}>
           <a href="/" className="nav-link">
@@ -127,6 +128,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />
+            <Route exact path="/work" component={Work} />
           </Switch>
           <Footer />
         </div>
