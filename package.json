@@ -7,7 +7,8 @@
     "start": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production",
     "sass": "node-sass -w scss/ -o src/css/ --recursive",
-    "build-css": "node-sass --include-path scss scss/main.scss   src/css/index.css"
+    "build-css": "node-sass --include-path scss scss/main.scss   src/css/index.css",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -18,12 +19,13 @@
   "bugs": {
     "url": "https://github.com/khusroohayat/rt-portfolio/issues"
   },
-  "homepage": "https://github.com/khusroohayat/rt-portfolio#readme",
+  "homepage": "https://khusroohayat.github.io/rt-portfolio/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
     "@fortawesome/free-brands-svg-icons": "^5.1.0-11",
     "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
     "@fortawesome/react-fontawesome": "0.1.0-11",
+    "gh-pages": "^1.2.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1"
