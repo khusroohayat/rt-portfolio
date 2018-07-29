@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
@@ -12,6 +13,7 @@ import {
   faLinkedin,
   faGithub
 } from "@fortawesome/free-brands-svg-icons";
+import About from "./about";
 
 function Nav(props) {
   return (
@@ -20,15 +22,15 @@ function Nav(props) {
         <div className="portrait" />
       </div>
       <ul className={"menu-nav " + (!props.shownav ? "show" : "")}>
-        <li className={"nav-item current " + (!props.shownav ? "show" : "")}>
-          <a href="/" className="nav-link">
+        <li className={"nav-item " + (!props.shownav ? "show" : "")}>
+          <NavLink exact activeClassName="current" className="nav-link" to="/">
             Home
-          </a>
+          </NavLink>
         </li>
         <li className={"nav-item " + (!props.shownav ? "show" : "")}>
-          <a href="/" className="nav-link">
-            About me
-          </a>
+          <NavLink activeClassName="current" className="nav-link" to="/about">
+            About Me
+          </NavLink>
         </li>
         <li className={"nav-item " + (!props.shownav ? "show" : "")}>
           <a href="/" className="nav-link">
@@ -44,17 +46,6 @@ function Nav(props) {
     </nav>
   );
 }
-
-// function Header() {
-//   return (
-//     <header>
-//       <div className="menu-btn" onClick={toggleMenu()} >
-//         <FontAwesomeIcon icon={faBars} size="lg" />
-//       </div>
-//       <Nav />
-//     </header>
-//   );
-// }
 
 class Header extends Component {
   constructor(props) {
@@ -87,6 +78,10 @@ class Header extends Component {
 
 const Child = props => {
   return <FontAwesomeIcon icon={props.icon} size="2x" />;
+};
+
+const Footer = () => {
+  return <footer id={"main-footer"}>Copyright &copy; 2018</footer>;
 };
 
 function Home() {
@@ -126,10 +121,16 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
-        <Header />
-        <Home />
-      </div>
+      <BrowserRouter>
+        <div>
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/about" component={About} />
+          </Switch>
+          <Footer />
+        </div>
+      </BrowserRouter>
     );
   }
 }
