@@ -25,22 +25,43 @@ function Nav(props) {
       </div>
       <ul className={"menu-nav " + (!props.shownav ? "show" : "")}>
         <li className={"nav-item " + (!props.shownav ? "show" : "")}>
-          <NavLink exact activeClassName="current" className="nav-link" to="/">
+          <NavLink
+            exact
+            activeClassName="current"
+            className="nav-link"
+            to="/"
+            onClick={props.callToggleMenu.bind(this)}
+          >
             Home
           </NavLink>
         </li>
         <li className={"nav-item " + (!props.shownav ? "show" : "")}>
-          <NavLink activeClassName="current" className="nav-link" to="/about">
+          <NavLink
+            activeClassName="current"
+            className="nav-link"
+            to="/about"
+            onClick={props.callToggleMenu.bind(this)}
+          >
             About Me
           </NavLink>
         </li>
         <li className={"nav-item " + (!props.shownav ? "show" : "")}>
-          <NavLink activeClassName="current" className="nav-link" to="/work">
+          <NavLink
+            activeClassName="current"
+            className="nav-link"
+            to="/work"
+            onClick={props.callToggleMenu.bind(this)}
+          >
             Work
           </NavLink>
         </li>
         <li className={"nav-item " + (!props.shownav ? "show" : "")}>
-          <NavLink activeClassName="current" className="nav-link" to="/contact">
+          <NavLink
+            activeClassName="current"
+            className="nav-link"
+            to="/contact"
+            onClick={props.callToggleMenu.bind(this)}
+          >
             Contact
           </NavLink>
         </li>
@@ -56,11 +77,11 @@ class Header extends Component {
 
     this.toggleMenu = this.toggleMenu.bind(this);
   }
+  
   toggleMenu() {
     this.setState({
       isHidden: !this.state.isHidden
     });
-    console.log(this.state.isHidden);
   }
   render() {
     return (
@@ -72,7 +93,7 @@ class Header extends Component {
             <Child icon={faTimes} />
           )}
         </div>
-        <Nav shownav={this.state.isHidden} />
+        <Nav shownav={this.state.isHidden} callToggleMenu={this.toggleMenu} />
       </header>
     );
   }
@@ -90,7 +111,7 @@ function Home() {
   return (
     <main id="home">
       <h1 className="lg-heading">
-        John <span className="text-secondary">Doe</span>
+        Khusroo <span className="text-secondary">Hayat</span>
       </h1>
       <h2 className="sm-heading">
         Web Developer, Programmer And Open Source Enthusiast

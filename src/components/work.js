@@ -17,7 +17,7 @@ class Work extends Component {
         <div className="projects">
           <div className="item">
             <a href="#1">
-              <img src={"/src/img/projects/project1.jpg"} alt="Project" />
+              <img src={require("../img/projects/project1.jpg")} alt="Project" />
             </a>
             <a href="#" className="btn-light">
               <FontAwesomeIcon icon={faEye} className="fas" />
@@ -30,7 +30,7 @@ class Work extends Component {
           </div>
           <div className="item">
             <a href="#1">
-              <img src={"/src/img/projects/project2.jpg"} alt="Project" />
+              <img src={require("../img/projects/project2.jpg")} alt="Project" />
             </a>
             <a href="#" className="btn-light">
               <FontAwesomeIcon icon={faEye} className="fas" />
@@ -43,7 +43,7 @@ class Work extends Component {
           </div>
           <div className="item">
             <a href="#1">
-              <img src={"/src/img/projects/project3.jpg"} alt="Project" />
+              <img src={require("../img/projects/project3.jpg")} alt="Project" />
             </a>
             <a href="#" className="btn-light">
               <FontAwesomeIcon icon={faEye} className="fas" />
@@ -56,7 +56,7 @@ class Work extends Component {
           </div>
           <div className="item">
             <a href="#1">
-              <img src={"/src/img/projects/project4.jpg"} alt="Project" />
+              <img src={require("../img/projects/project4.jpg")} alt="Project" />
             </a>
             <a href="#" className="btn-light">
               <FontAwesomeIcon icon={faEye} className="fas" />
@@ -69,7 +69,7 @@ class Work extends Component {
           </div>
           <div className="item">
             <a href="#1">
-              <img src={"/src/img/projects/project5.jpg"} alt="Project" />
+              <img src={require("../img/projects/project5.jpg")} alt="Project" />
             </a>
             <a href="#" className="btn-light">
               <FontAwesomeIcon icon={faEye} className="fas" />
