@@ -12,15 +12,15 @@ class Contact extends Component {
         <div className="boxes">
           <div>
               <span className="text-secondary">Email: </span>
-              johndoe@test.com
+              khusroo.hayat@gmail.com
           </div>
           <div>
               <span className="text-secondary">Phone: </span>
-              (555) 555-5555
+              (+92)-332-3279737
           </div>
           <div>
               <span className="text-secondary">Address: </span>
-              50 Main st, Boston MA 02101
+              Hyderabad, Pakistan
           </div>
         </div>
       </main>

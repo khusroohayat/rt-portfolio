@@ -12,12 +12,13 @@ class About extends Component {
     return (
       <main id="about">
         <h1 className="lg-heading">
-          About&nbsp;<span className="text-secondary">Me</span>
+          About&nbsp;
+          <span className="text-secondary">Me</span>
         </h1>
         <h2 className="sm-heading">Let me tell you a few things...</h2>
         <div className="about-info">
           <img
-            src={require("../img/portrait.jpg")}
+            src={require("../img/portrait1.jpg")}
             alt="John Doe"
             className="bio-image"
           />
